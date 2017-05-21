@@ -56,6 +56,7 @@ if ( ! class_exists( 'Hide_Posts' ) ) {
 		 */
 		private function __construct() {
 			add_action( 'wp', array( $this, 'init' ) );
+			$this->includes();
 		}
 
 		/**
@@ -74,8 +75,6 @@ if ( ! class_exists( 'Hide_Posts' ) ) {
 			add_filter( 'posts_where', array( $this, 'where_clause' ), 20, 2 );
 			add_filter( 'get_next_post_where', array( $this, 'post_navigation_clause' ), 20, 1 );
 			add_filter( 'get_previous_post_where', array( $this, 'post_navigation_clause' ), 20, 1 );
-
-			$this->includes();
 		}
 
 		/**
