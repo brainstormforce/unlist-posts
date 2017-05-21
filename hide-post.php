@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:     Hide Post
- * Plugin URI:      https://www.brainstormforce.com
+ * Plugin URI:      https://github.com/Nikschavan/hide-post
  * Description:     Hide post from dispying anywhere on the site, only access the post with a direct link to the post.
  * Author:          Brainstorm Force
  * Author URI:      https://www.brainstormforce.com
