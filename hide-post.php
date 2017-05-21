@@ -55,7 +55,7 @@ if ( ! class_exists( 'Hide_Posts' ) ) {
 		 * @since  1.0.0
 		 */
 		private function __construct() {
-			add_action( 'wp', array( $this, 'init' ) );
+			add_action( 'init', array( $this, 'init' ) );
 			$this->includes();
 		}
 
