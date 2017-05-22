@@ -102,7 +102,7 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 			}
 
 			global $wpdb;
-			$where .= ' AND ' . $wpdb->prefix . 'posts.ID NOT IN ( ' . esc_sql( $this->hidden_post_string() ) . ' )';
+			$where .= ' AND ' . $wpdb->prefix . 'posts.ID NOT IN ( ' . esc_sql( $this->hidden_post_string() ) . ' ) ';
 
 			return $where;
 		}
@@ -124,7 +124,7 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 				return $where;
 			}
 
-			$where .= ' AND p.ID NOT IN ( ' . esc_sql( $this->hidden_post_string() ) . ' )';
+			$where .= ' AND p.ID NOT IN ( ' . esc_sql( $this->hidden_post_string() ) . ' ) ';
 
 			return $where;
 		}
