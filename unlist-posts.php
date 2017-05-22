@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) or exit;
 
 define( 'UNLIST_POSTS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'UNLIST_POSTS_URI', plugins_url( '/', __FILE__ ) );
-define( 'UNLIST_POSTS_VER', '0.1.0' );
+define( 'UNLIST_POSTS_VER', '1.0.0' );
 
 
 /**
