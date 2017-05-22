@@ -65,13 +65,6 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 		 * @since  1.0.0
 		 */
 		public function init() {
-			$hidden_posts = get_option( 'unlist_posts', array() );
-
-			// bail if none of the posts are hidden or we are on admin page or singular page.
-			if ( is_admin() || is_singular() || empty( $hidden_posts ) ) {
-				return '';
-			}
-
 			add_filter( 'posts_where', array( $this, 'where_clause' ), 20, 2 );
 			add_filter( 'get_next_post_where', array( $this, 'post_navigation_clause' ), 20, 1 );
 			add_filter( 'get_previous_post_where', array( $this, 'post_navigation_clause' ), 20, 1 );
@@ -101,6 +94,13 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 		 * @return String $where Where clause.
 		 */
 		function where_clause( $where, $query ) {
+			$hidden_posts = get_option( 'unlist_posts', array() );
+
+			// bail if none of the posts are hidden or we are on admin page or singular page.
+			if ( is_admin() || in_array( get_the_ID(), $hidden_posts ) || empty( $hidden_posts ) ) {
+				return $where;
+			}
+
 			global $wpdb;
 			$where .= ' AND ' . $wpdb->prefix . 'posts.ID NOT IN ( ' . esc_sql( $this->hidden_post_string() ) . ' )';
 
@@ -117,6 +117,13 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 		 * @param  String $where Where clause.
 		 */
 		function post_navigation_clause( $where ) {
+			$hidden_posts = get_option( 'unlist_posts', array() );
+
+			// bail if none of the posts are hidden or we are on admin page or singular page.
+			if ( is_admin() || in_array( get_the_ID(), $hidden_posts ) || empty( $hidden_posts ) ) {
+				return $where;
+			}
+
 			$where .= ' AND p.ID NOT IN ( ' . esc_sql( $this->hidden_post_string() ) . ' )';
 
 			return $where;
