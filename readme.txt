@@ -12,21 +12,18 @@ Unlist Posts from dispying anywhere on the site, only access the post with a dir
 
 == Description ==
 
-Unlist Posts from dispying anywhere on the site, only access the post with a direct link.
+Unlisted means your post/page will not come up in search results or on anywhere else on your site. Only those who have the link of the post can view it just like any normal post on the site. 
+
+The Post could still be seen by anyone, but only if they guess the link!
 
 == Installation ==
 
-1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+1. Go to the *Plugins* menu and click *Add New*.
+2. Search for *Unlist Posts*.
+3. Click *Install Now* next to the *User Switching* plugin.
+4. Activate the plugin.
 
-== Screenshots ==
-
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+Just select option "Unlist Post" in any post of any type and that post will be hidden from the whole site, it can be only accessed if you have the direct link to the post.
 
 == Changelog ==
 
