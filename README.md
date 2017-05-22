@@ -20,7 +20,7 @@ The Post could still be seen by anyone, but only if they guess the link!
 
 1. Go to the *Plugins* menu and click *Add New*.
 2. Search for *Unlist Posts*.
-3. Click *Install Now* next to the *User Switching* plugin.
+3. Click *Install Now* next to the *Unlist Posts* plugin.
 4. Activate the plugin.
 
 Just select option "Unlist Post" in any post of any type and that post will be hidden from the whole site, it can be only accessed if you have the direct link to the post.
