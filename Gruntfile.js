@@ -9,7 +9,7 @@ module.exports = function( grunt ) {
 
 		addtextdomain: {
 			options: {
-				textdomain: 'hide-post',
+				textdomain: 'unlist-posts',
 			},
 			target: {
 				files: {
@@ -30,8 +30,8 @@ module.exports = function( grunt ) {
 			target: {
 				options: {
 					domainPath: '/languages',
-					mainFile: 'hide-post.php',
-					potFilename: 'hide-post.pot',
+					mainFile: 'unlist-posts.php',
+					potFilename: 'unlist-posts.pot',
 					potHeaders: {
 						poedit: true,
 						'x-poedit-keywordslist': true

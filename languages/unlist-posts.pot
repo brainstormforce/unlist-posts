@@ -1,10 +1,10 @@
 # Copyright (C) 2017 Brainstorm Force
-# This file is distributed under the same license as the Hide Post package.
+# This file is distributed under the same license as the Unlist Posts package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Hide Post 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/hide-post\n"
-"POT-Creation-Date: 2017-05-21 15:13:38+00:00\n"
+"Project-Id-Version: Unlist Posts 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/unlist-posts\n"
+"POT-Creation-Date: 2017-05-22 04:39:59+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,12 +24,12 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 
-#. Plugin Name of the plugin/theme
-msgid "Hide Post"
+#: admin-functions.php:55
+msgid "Unlist Post"
 msgstr ""
 
 #: admin-functions.php:80
-msgid "Hide this post?"
+msgid "Unlist this post?"
 msgstr ""
 
 #: admin-functions.php:83
@@ -38,16 +38,24 @@ msgid ""
 "direct URL."
 msgstr ""
 
-#. Author URI of the plugin/theme
-msgid "https://www.brainstormforce.com"
+#. Plugin Name of the plugin/theme
+msgid "Unlist Posts"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/Nikschavan/hide-post"
 msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Hide post from dispying anywhere on the site, only access the post with a "
-"direct link to the post."
+"Unlist Posts from dispying anywhere on the site, only access the post with "
+"a direct link to the post."
 msgstr ""
 
 #. Author of the plugin/theme
 msgid "Brainstorm Force"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.brainstormforce.com"
 msgstr ""
