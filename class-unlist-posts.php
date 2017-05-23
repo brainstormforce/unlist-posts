@@ -143,7 +143,7 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 			global $wpdb;
 
 			$where 	= $clauses['where'];
-			$where .= ' AND ' . $wpdb->prefix . 'posts.ID NOT IN ( ' . esc_sql( $this->hidden_post_string() ) . ' ) ';
+			$where .= ' AND comment_post_ID NOT IN ( ' . esc_sql( $this->hidden_post_string() ) . ' ) ';
 			$clauses['where'] = $where;
 
 			return $clauses;
