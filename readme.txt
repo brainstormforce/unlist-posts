@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Tags: post, unlist posts, hide posts, 
 Requires at least: 4.4
 Tested up to: 4.7.5
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,9 @@ The Post could still be seen by anyone, but only if they guess the link!
 Just select option "Unlist Post" in any post of any type and that post will be hidden from the whole site, it can be only accessed if you have the direct link to the post.
 
 == Changelog ==
+
+= 1.0.1 =
+* Updated code architecture to be PHPCS compatible.
 
 = 1.0.0 =
 * Initial Release.
