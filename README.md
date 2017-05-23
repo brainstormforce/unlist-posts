@@ -29,6 +29,7 @@ Just select option "Unlist Post" in any post of any type and that post will be h
 
 ### 1.0.1-beta.1 ###
 * New - Hide a page from search engines if it is unlisted.
+* New - Hide the post from comments query if it is unlisted.
 * Updated code architecture to be PHPCS compatible.
 
 ### 1.0.0 ###
