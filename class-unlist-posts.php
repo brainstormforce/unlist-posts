@@ -61,6 +61,7 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 			add_filter( 'posts_where', array( $this, 'where_clause' ), 20, 2 );
 			add_filter( 'get_next_post_where', array( $this, 'post_navigation_clause' ), 20, 1 );
 			add_filter( 'get_previous_post_where', array( $this, 'post_navigation_clause' ), 20, 1 );
+			add_filter( 'comments_clauses', array( $this, 'comments_clauses' ), 20, 2 );
 		}
 
 		/**
@@ -118,6 +119,34 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 			$where .= ' AND p.ID NOT IN ( ' . esc_sql( $this->hidden_post_string() ) . ' ) ';
 
 			return $where;
+		}
+
+		/**
+		 * Filter where clause to hide selected posts.
+		 *
+		 * @since  1.0.1
+		 *
+		 * @param  Array    $clauses Comment Query Clauses.
+		 * @param  WP_Query $query WP_Query &$this The WP_Query instance (passed by reference).
+		 *
+		 * @return String $where Where clause.
+		 */
+		public function comments_clauses( $clauses, $query ) {
+
+			$hidden_posts = get_option( 'unlist_posts', array() );
+
+			// bail if none of the posts are hidden or we are on admin page or singular page.
+			if ( is_admin() || in_array( get_the_ID(), $hidden_posts ) || empty( $hidden_posts ) ) {
+				return $clauses;
+			}
+
+			global $wpdb;
+
+			$where 	= $clauses['where'];
+			$where .= ' AND comment_post_ID NOT IN ( ' . esc_sql( $this->hidden_post_string() ) . ' ) ';
+			$clauses['where'] = $where;
+
+			return $clauses;
 		}
 
 		/**
