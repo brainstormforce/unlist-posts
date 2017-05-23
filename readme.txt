@@ -1,4 +1,4 @@
-=== Unlist Posts ===
+=== Unlist Posts & Pages ===
 Contributors: brainstormforce, Nikschavan
 Donate link: https://www.paypal.me/BrainstormForce
 Tags: post, unlist posts, hide posts, 

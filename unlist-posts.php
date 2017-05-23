@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:     Unlist Posts
+ * Plugin Name:     Unlist Posts & Pages
  * Plugin URI:      https://github.com/Nikschavan/hide-post
  * Description:     Unlist Posts from dispying anywhere on the site, only access the post with a direct link.
  * Author:          Brainstorm Force
