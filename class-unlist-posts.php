@@ -61,11 +61,8 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 			add_filter( 'posts_where', array( $this, 'where_clause' ), 20, 2 );
 			add_filter( 'get_next_post_where', array( $this, 'post_navigation_clause' ), 20, 1 );
 			add_filter( 'get_previous_post_where', array( $this, 'post_navigation_clause' ), 20, 1 );
-<<<<<<< HEAD
 			add_action( 'wp_head', array( $this, 'hide_post_from_searchengines' ) );
-=======
 			add_filter( 'comments_clauses', array( $this, 'comments_clauses' ), 20, 2 );
->>>>>>> ab0f2b13785bdee44582169b13b953a4ce9bf12e
 		}
 
 		/**
@@ -126,7 +123,6 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 		}
 
 		/**
-<<<<<<< HEAD
 		 * Add meta tags to block search engines on a page if the page is unlisted.
 		 *
 		 * @since  1.0.1
@@ -137,7 +133,9 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 			if ( in_array( get_the_ID(), $hidden_posts ) && false !== get_the_ID() ) {
 				wp_no_robots();
 			}
-=======
+		}
+
+		/**
 		 * Filter where clause to hide selected posts.
 		 *
 		 * @since  1.0.1
@@ -163,7 +161,6 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 			$clauses['where'] = $where;
 
 			return $clauses;
->>>>>>> ab0f2b13785bdee44582169b13b953a4ce9bf12e
 		}
 
 		/**
