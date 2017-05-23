@@ -47,7 +47,7 @@ class Unlist_Posts_Admin {
 	 */
 	function register_metabox() {
 		$args = array(
-			'public' => true
+			'public' => true,
 		);
 
 		$post_types = get_post_types( $args, 'names', 'and' );
