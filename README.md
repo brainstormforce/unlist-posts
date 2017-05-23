@@ -16,6 +16,13 @@ Unlisted means your post/page will not come up in search results or on anywhere 
 
 The Post could still be seen by anyone, but only if they guess the link!
 
+The plugin updates MySQL query directly in WP_Query class of WordPress to leave out the posts which are unlisted by the user. As this modifies the core WP_Query, this also works very well with all the plugins which pull out posts/pages from database by using WP_Query, For eg. Posts slider plugins, <a href="https://www.ultimatebeaver.com/modules/advanced-posts/?utm_source=wp-repo&utm_campaign=unlist-posts&utm_medium=other-plugins">Advanced Posts</a> in <a href="https://www.ultimatebeaver.com/?utm_source=wp-repo&utm_campaign=unlist-posts&utm_medium=other-plugins">Ultimate Addon for Beaver Builder</a> etc.
+
+### Limitations Of the Plugin ###
+
+- WP_Query has an a flag to 'Suppress' the filters. If any plugin is using this flag when querying the posts then the unlisted post will not be hidden in that plugin's output. 
+- Similarly if any plugin is using a custom MySQL query, then the unlisted posts will not be hidden from it's output.
+
 ## Installation ##
 
 1. Go to the *Plugins* menu and click *Add New*.
