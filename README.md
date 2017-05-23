@@ -27,7 +27,7 @@ Just select option "Unlist Post" in any post of any type and that post will be h
 
 ## Changelog ##
 
-### 1.0.1 ###
+### 1.0.1-beta.1 ###
 * Updated code architecture to be PHPCS compatible.
 
 ### 1.0.0 ###
