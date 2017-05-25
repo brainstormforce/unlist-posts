@@ -7,7 +7,7 @@
  * Author URI:      https://www.brainstormforce.com
  * Text Domain:     unlist-posts
  * Domain Path:     /languages
- * Version:         1.0.1
+ * Version:         1.0.2-beta.1
  *
  * @package         Hide_Post
  */

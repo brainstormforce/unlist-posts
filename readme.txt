@@ -34,6 +34,9 @@ Just select option "Unlist Post" in any post of any type and that post will be h
 
 == Changelog ==
 
+= 1.0.2-beta.1 =
+* New - Exclude the posts from wp_list_pages()
+
 = 1.0.1 =
 * New - Hide a page from search engines if it is unlisted.
 * New - Hide the post from comments query if it is unlisted.
