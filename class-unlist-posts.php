@@ -63,6 +63,7 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 			add_filter( 'get_previous_post_where', array( $this, 'post_navigation_clause' ), 20, 1 );
 			add_action( 'wp_head', array( $this, 'hide_post_from_searchengines' ) );
 			add_filter( 'comments_clauses', array( $this, 'comments_clauses' ), 20, 2 );
+			add_filter( 'wp_list_pages_excludes', array( $this, 'wp_list_pages_excludes' ) );
 		}
 
 		/**
@@ -161,6 +162,20 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 			$clauses['where'] = $where;
 
 			return $clauses;
+		}
+
+		/**
+		 * Exclude the unlisted posts from the wp_list_posts()
+		 *
+		 * @since  1.0.2
+		 * @param  Array $exclude_array Array of posts to be excluded from post list.
+		 * @return Array Array of posts to be excluded from post list.
+		 */
+		public function wp_list_pages_excludes( $exclude_array ) {
+			$hidden_posts 	= get_option( 'unlist_posts', array() );
+			$exclude_array 	= array_merge( $exclude_array, $hidden_posts );
+
+			return $exclude_array;
 		}
 
 		/**
