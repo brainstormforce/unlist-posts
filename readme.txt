@@ -3,8 +3,8 @@ Contributors: brainstormforce, Nikschavan
 Donate link: https://www.paypal.me/BrainstormForce
 Tags: post, unlist posts, hide posts, 
 Requires at least: 4.4
-Tested up to: 4.7.5
-Stable tag: 1.0.1
+Tested up to: 4.8.0
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,6 +17,9 @@ Unlisted means your post/page will not come up in search results or on anywhere 
 The Post could still be seen by anyone, but only if they guess the link!
 
 The plugin updates MySQL query directly in WP_Query class of WordPress to leave out the posts which are unlisted by the user. As this modifies the core WP_Query, this also works very well with all the plugins which pull out posts/pages from database by using WP_Query, For eg. Posts slider plugins, <a href="https://www.ultimatebeaver.com/modules/advanced-posts/?utm_source=wp-repo&utm_campaign=unlist-posts&utm_medium=other-plugins">Advanced Posts</a> in <a href="https://www.ultimatebeaver.com/?utm_source=wp-repo&utm_campaign=unlist-posts&utm_medium=other-plugins">Ultimate Addon for Beaver Builder</a> etc.
+
+= Supported & Actively Developed =
+Need help with something? Have an issue to report? [Get in touch](https://github.com/Nikschavan/unlist-posts "Unlist Posts & Pages on GitHub"). with us on GitHub.
 
 = Limitations Of the Plugin = 
 
@@ -34,7 +37,7 @@ Just select option "Unlist Post" in any post of any type and that post will be h
 
 == Changelog ==
 
-= 1.0.2-beta.1 =
+= 1.0.2 =
 * New - Exclude the posts from wp_list_pages()
 
 = 1.0.1 =
