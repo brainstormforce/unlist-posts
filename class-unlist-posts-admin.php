@@ -52,10 +52,12 @@ class Unlist_Posts_Admin {
 
 		$post_types = get_post_types( $args, 'names', 'and' );
 
-		add_meta_box( 'ehf-meta-box', __( 'Unlist Post', 'unlist-posts' ), array(
-			$this,
-			'metabox_render',
-		), $post_types, 'side', 'high' );
+		add_meta_box(
+			'ehf-meta-box', __( 'Unlist Post', 'unlist-posts' ), array(
+				$this,
+				'metabox_render',
+			), $post_types, 'side', 'high'
+		);
 	}
 
 	/**
@@ -64,14 +66,14 @@ class Unlist_Posts_Admin {
 	 * @param  POST $post Currennt post object which is being displayed.
 	 */
 	function metabox_render( $post ) {
-		
-		$hidden_posts 	= get_option( 'unlist_posts', array() );
+
+		$hidden_posts   = get_option( 'unlist_posts', array() );
 
 		if ( '' == $hidden_posts ) {
 			$hidden_posts = array();
 		}
 
-		$checked 		= '';
+		$checked        = '';
 
 		if ( in_array( $post->ID, $hidden_posts ) ) {
 			$checked = 'checked';
@@ -119,14 +121,14 @@ class Unlist_Posts_Admin {
 		}
 
 		if ( isset( $_POST['unlist_posts'] ) ) {
-			$hidden_posts[] =  $post_id;
+			$hidden_posts[] = $post_id;
 
 			// Get only the unique post id's in the option array.
-			$hidden_posts 	= array_unique( $hidden_posts );
+			$hidden_posts   = array_unique( $hidden_posts );
 		} elseif ( in_array( $post_id, $hidden_posts ) ) {
 
 			// Get only the unique post id's in the option array.
-			$hidden_posts 	= array_unique( $hidden_posts );
+			$hidden_posts   = array_unique( $hidden_posts );
 
 			$key = array_search( $post_id, $hidden_posts );
 			unset( $hidden_posts[ $key ] );
