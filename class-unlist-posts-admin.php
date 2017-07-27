@@ -64,7 +64,13 @@ class Unlist_Posts_Admin {
 	 * @param  POST $post Currennt post object which is being displayed.
 	 */
 	function metabox_render( $post ) {
+		
 		$hidden_posts 	= get_option( 'unlist_posts', array() );
+
+		if ( '' == $hidden_posts ) {
+			$hidden_posts = array();
+		}
+
 		$checked 		= '';
 
 		if ( in_array( $post->ID, $hidden_posts ) ) {
@@ -108,9 +114,20 @@ class Unlist_Posts_Admin {
 
 		$hidden_posts = get_option( 'unlist_posts', array() );
 
+		if ( '' == $hidden_posts ) {
+			$hidden_posts = array();
+		}
+
 		if ( isset( $_POST['unlist_posts'] ) ) {
-			array_push( $hidden_posts, $post_id );
+			$hidden_posts[] =  $post_id;
+
+			// Get only the unique post id's in the option array.
+			$hidden_posts 	= array_unique( $hidden_posts );
 		} elseif ( in_array( $post_id, $hidden_posts ) ) {
+
+			// Get only the unique post id's in the option array.
+			$hidden_posts 	= array_unique( $hidden_posts );
+
 			$key = array_search( $post_id, $hidden_posts );
 			unset( $hidden_posts[ $key ] );
 		}
