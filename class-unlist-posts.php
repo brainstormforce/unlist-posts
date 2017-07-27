@@ -157,7 +157,7 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 
 			global $wpdb;
 
-			$where 	= $clauses['where'];
+			$where  = $clauses['where'];
 			$where .= ' AND comment_post_ID NOT IN ( ' . esc_sql( $this->hidden_post_string() ) . ' ) ';
 			$clauses['where'] = $where;
 
@@ -172,8 +172,8 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 		 * @return Array Array of posts to be excluded from post list.
 		 */
 		public function wp_list_pages_excludes( $exclude_array ) {
-			$hidden_posts 	= get_option( 'unlist_posts', array() );
-			$exclude_array 	= array_merge( $exclude_array, $hidden_posts );
+			$hidden_posts   = get_option( 'unlist_posts', array() );
+			$exclude_array  = array_merge( $exclude_array, $hidden_posts );
 
 			return $exclude_array;
 		}

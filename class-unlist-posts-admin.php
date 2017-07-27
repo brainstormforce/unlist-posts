@@ -52,10 +52,12 @@ class Unlist_Posts_Admin {
 
 		$post_types = get_post_types( $args, 'names', 'and' );
 
-		add_meta_box( 'ehf-meta-box', __( 'Unlist Post', 'unlist-posts' ), array(
-			$this,
-			'metabox_render',
-		), $post_types, 'side', 'high' );
+		add_meta_box(
+			'ehf-meta-box', __( 'Unlist Post', 'unlist-posts' ), array(
+				$this,
+				'metabox_render',
+			), $post_types, 'side', 'high'
+		);
 	}
 
 	/**
@@ -64,8 +66,8 @@ class Unlist_Posts_Admin {
 	 * @param  POST $post Currennt post object which is being displayed.
 	 */
 	function metabox_render( $post ) {
-		$hidden_posts 	= get_option( 'unlist_posts', array() );
-		$checked 		= '';
+		$hidden_posts   = get_option( 'unlist_posts', array() );
+		$checked        = '';
 
 		if ( in_array( $post->ID, $hidden_posts ) ) {
 			$checked = 'checked';
