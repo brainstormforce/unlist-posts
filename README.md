@@ -4,7 +4,7 @@
 **Tags:** post, unlist posts, hide posts,   
 **Requires at least:** 4.4  
 **Tested up to:** 4.8.0  
-**Stable tag:** 1.0.2  
+**Stable tag:** 1.0.3  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -36,6 +36,9 @@ Need help with something? Have an issue to report? [Get in touch](https://github
 Just select option "Unlist Post" in any post of any type and that post will be hidden from the whole site, it can be only accessed if you have the direct link to the post.
 
 ## Changelog ##
+
+### 1.0.3 ###
+* Fix: duplicate post ids being saved in the options array.
 
 ### 1.0.2 ###
 * New - Exclude the posts from wp_list_pages()
