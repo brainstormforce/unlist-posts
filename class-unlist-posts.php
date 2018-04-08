@@ -90,6 +90,12 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 		 * @return String $where Where clause.
 		 */
 		function where_clause( $where, $query ) {
+
+			// Bail if posts unlists is disabled.
+			if ( false === $this->allow_post_unlist() ) {
+				return $where;
+			}
+
 			$hidden_posts = get_option( 'unlist_posts', array() );
 
 			// bail if none of the posts are hidden or we are on admin page or singular page.
@@ -111,6 +117,12 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 		 * @param  String $where Where clause.
 		 */
 		function post_navigation_clause( $where ) {
+
+			// Bail if posts unlists is disabled.
+			if ( false === $this->allow_post_unlist() ) {
+				return $where;
+			}
+
 			$hidden_posts = get_option( 'unlist_posts', array() );
 
 			// bail if none of the posts are hidden or we are on admin page or singular page.
@@ -129,6 +141,12 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 		 * @since  1.0.1
 		 */
 		public function hide_post_from_searchengines() {
+
+			// Bail if posts unlists is disabled.
+			if ( false === $this->allow_post_unlist() ) {
+				return false;
+			}
+
 			$hidden_posts = get_option( 'unlist_posts', array() );
 
 			if ( in_array( get_the_ID(), $hidden_posts ) && false !== get_the_ID() ) {
@@ -148,14 +166,17 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 		 */
 		public function comments_clauses( $clauses, $query ) {
 
+			// Bail if posts unlists is disabled.
+			if ( false === $this->allow_post_unlist() ) {
+				return $clauses;
+			}
+
 			$hidden_posts = get_option( 'unlist_posts', array() );
 
 			// bail if none of the posts are hidden or we are on admin page or singular page.
 			if ( is_admin() || in_array( get_the_ID(), $hidden_posts ) || empty( $hidden_posts ) ) {
 				return $clauses;
 			}
-
-			global $wpdb;
 
 			$where            = $clauses['where'];
 			$where           .= ' AND comment_post_ID NOT IN ( ' . esc_sql( $this->hidden_post_string() ) . ' ) ';
@@ -172,6 +193,12 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 		 * @return Array Array of posts to be excluded from post list.
 		 */
 		public function wp_list_pages_excludes( $exclude_array ) {
+
+			// Bail if posts unlists is disabled.
+			if ( false === $this->allow_post_unlist() ) {
+				return $exclude_array;
+			}
+
 			$hidden_posts  = get_option( 'unlist_posts', array() );
 			$exclude_array = array_merge( $exclude_array, $hidden_posts );
 
@@ -185,10 +212,20 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 		 *
 		 * @return String Comma separated string of post id's.
 		 */
-		function hidden_post_string() {
+		public function hidden_post_string() {
 			$hidden_posts = get_option( 'unlist_posts', array() );
 
 			return implode( ', ', $hidden_posts );
+		}
+
+		/**
+		 * Allow post unlist to be disabled using a filter.
+		 *
+		 * @since  1.1.0
+		 * @return boolean True - This is the default value. This means that post unlist is enabled.
+		 */
+		private function allow_post_unlist() {
+			return apply_filters( 'unlist_posts_enabled', true );
 		}
 
 	}
