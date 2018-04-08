@@ -44,8 +44,8 @@ class Unlist_Posts_Admin {
 
 	/**
 	 * Render Meta field.
-	 *
-	 * @param  POST $post Currennt post object which is being displayed.
+	 * 
+	 * @return  void
 	 */
 	function metabox_render() {
 
