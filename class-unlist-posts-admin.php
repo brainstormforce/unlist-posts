@@ -67,13 +67,13 @@ class Unlist_Posts_Admin {
 	 */
 	function metabox_render( $post ) {
 
-		$hidden_posts   = get_option( 'unlist_posts', array() );
+		$hidden_posts = get_option( 'unlist_posts', array() );
 
 		if ( '' == $hidden_posts ) {
 			$hidden_posts = array();
 		}
 
-		$checked        = '';
+		$checked = '';
 
 		if ( in_array( $post->ID, $hidden_posts ) ) {
 			$checked = 'checked';
@@ -124,11 +124,11 @@ class Unlist_Posts_Admin {
 			$hidden_posts[] = $post_id;
 
 			// Get only the unique post id's in the option array.
-			$hidden_posts   = array_unique( $hidden_posts );
+			$hidden_posts = array_unique( $hidden_posts );
 		} elseif ( in_array( $post_id, $hidden_posts ) ) {
 
 			// Get only the unique post id's in the option array.
-			$hidden_posts   = array_unique( $hidden_posts );
+			$hidden_posts = array_unique( $hidden_posts );
 
 			$key = array_search( $post_id, $hidden_posts );
 			unset( $hidden_posts[ $key ] );
