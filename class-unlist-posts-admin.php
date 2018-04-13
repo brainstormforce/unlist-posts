@@ -38,34 +38,18 @@ class Unlist_Posts_Admin {
 	 * Constructor
 	 */
 	private function __construct() {
-		add_action( 'add_meta_boxes', array( $this, 'register_metabox' ) );
+		add_action( 'post_submitbox_misc_actions', array( $this, 'metabox_render' ) );
 		add_action( 'save_post', array( $this, 'save_meta' ) );
-	}
-
-	/**
-	 * Register meta box(es).
-	 */
-	function register_metabox() {
-		$args = array(
-			'public' => true,
-		);
-
-		$post_types = get_post_types( $args, 'names', 'and' );
-
-		add_meta_box(
-			'ehf-meta-box', __( 'Unlist Post', 'unlist-posts' ), array(
-				$this,
-				'metabox_render',
-			), $post_types, 'side', 'high'
-		);
 	}
 
 	/**
 	 * Render Meta field.
 	 *
-	 * @param  POST $post Currennt post object which is being displayed.
+	 * @return  void
 	 */
-	function metabox_render( $post ) {
+	function metabox_render() {
+
+		global $post;
 
 		$hidden_posts = get_option( 'unlist_posts', array() );
 
@@ -82,12 +66,13 @@ class Unlist_Posts_Admin {
 		// We'll use this nonce field later on when saving.
 		wp_nonce_field( 'unlist_post_nounce', 'unlist_post_nounce' );
 		?>
-		<p>
-			<label class="checkbox-inline">
-				<input name="unlist_posts" type="checkbox" <?php echo esc_attr( $checked ); ?> value=""><?php _e( 'Unlist this post?', 'unlist-posts' ); ?>
-			</label>
-		</p>
-		<p class="description"><?php _e( 'This will hide the post from your site, The post can only be accessed from direct URL.', 'unlist-posts' ); ?> </p>
+		<div class="misc-pub-section">
+			<p>
+				<label class="checkbox-inline">
+					<input name="unlist_posts" type="checkbox" <?php echo esc_attr( $checked ); ?> value=""><?php _e( 'Unlist this post', 'unlist-posts' ); ?>
+				</label>
+			</p>
+		</div>
 		<?php
 	}
 
