@@ -37,16 +37,19 @@ Just select option "Unlist Post" in any post of any type and that post will be h
 
 ## Changelog ##
 
+### 1.0.4 ###
+- Fix: unlist posts does not work in Ajax callbacks. (props <a href="https://github.com/makovetskiy">@makovetskiy</a>)
+
 ### 1.0.3 ###
-* Fix: duplicate post ids being saved in the options array.
+- Fix: duplicate post ids being saved in the options array.
 
 ### 1.0.2 ###
-* New - Exclude the posts from wp_list_pages()
+- New - Exclude the posts from wp_list_pages()
 
 ### 1.0.1 ###
-* New - Hide a page from search engines if it is unlisted.
-* New - Hide the post from comments query if it is unlisted.
-* Updated code architecture to be PHPCS compatible.
+- New - Hide a page from search engines if it is unlisted.
+- New - Hide the post from comments query if it is unlisted.
+- Updated code architecture to be PHPCS compatible.
 
 ### 1.0.0 ###
-* Initial Release.
+- Initial Release.
