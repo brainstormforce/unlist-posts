@@ -1,10 +1,10 @@
 # Unlist Posts & Pages #
-**Contributors:** brainstormforce, Nikschavan  
+**Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce), [Nikschavan](https://profiles.wordpress.org/Nikschavan)  
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Tags:** post, unlist posts, hide posts,   
 **Requires at least:** 4.4  
-**Tested up to:** 4.8.1  
-**Stable tag:** 1.0.3  
+**Tested up to:** 5.0  
+**Stable tag:** 1.0.4  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
