@@ -53,10 +53,15 @@ class Unlist_Posts_Admin {
 		$post_types = get_post_types( $args, 'names', 'and' );
 
 		add_meta_box(
-			'ehf-meta-box', __( 'Unlist Post', 'unlist-posts' ), array(
+			'ehf-meta-box',
+			__( 'Unlist Post', 'unlist-posts' ),
+			array(
 				$this,
 				'metabox_render',
-			), $post_types, 'side', 'high'
+			),
+			$post_types,
+			'side',
+			'high'
 		);
 	}
 
