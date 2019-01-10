@@ -1,45 +1,45 @@
-# Copyright (C) 2017 Brainstorm Force
-# This file is distributed under the same license as the Unlist Posts package.
+# Copyright (C) 2019 Nikhil Chavan
+# This file is distributed under the same license as the Unlist Posts & Pages package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Unlist Posts 1.0.0\n"
+"Project-Id-Version: Unlist Posts & Pages 1.0.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/unlist-posts\n"
-"POT-Creation-Date: 2017-05-22 04:39:59+00:00\n"
+"POT-Creation-Date: 2019-01-10 06:14:02+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.5.4\n"
-"X-Poedit-KeywordsList: "
-"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
-"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Country: United States\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: admin-functions.php:55
+#: class-unlist-posts-admin.php:57
 msgid "Unlist Post"
 msgstr ""
 
-#: admin-functions.php:80
+#: class-unlist-posts-admin.php:92
 msgid "Unlist this post?"
 msgstr ""
 
-#: admin-functions.php:83
+#: class-unlist-posts-admin.php:95
 msgid ""
 "This will hide the post from your site, The post can only be accessed from "
 "direct URL."
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "Unlist Posts"
+msgid "Unlist Posts & Pages"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
@@ -49,13 +49,13 @@ msgstr ""
 #. Description of the plugin/theme
 msgid ""
 "Unlist Posts from dispying anywhere on the site, only access the post with "
-"a direct link to the post."
+"a direct link."
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Brainstorm Force"
+msgid "Nikhil Chavan"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://www.brainstormforce.com"
+msgid "https://www.nikhilchavan.com/"
 msgstr ""
