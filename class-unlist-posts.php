@@ -99,7 +99,7 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 			$hidden_posts = get_option( 'unlist_posts', array() );
 
 			// bail if none of the posts are hidden or we are on admin page or singular page.
-			if ( is_admin() || $query->is_singular || empty( $hidden_posts ) ) {
+			if ( ( ! wp_doing_ajax() && is_admin() ) || $query->is_singular || empty( $hidden_posts ) ) {
 				return $where;
 			}
 
