@@ -1,9 +1,9 @@
 === Unlist Posts & Pages ===
 Contributors: brainstormforce, Nikschavan
 Donate link: https://www.paypal.me/BrainstormForce
-Tags: post, unlist posts, hide posts, 
+Tags: post, unlist posts, hide posts,
 Requires at least: 4.4
-Tested up to: 5.4.2
+Tested up to: 5.5
 Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -12,7 +12,7 @@ Unlist Posts from dispying anywhere on the site, only access the post with a dir
 
 == Description ==
 
-Unlisted means your post/page will not come up in search results or on anywhere else on your site. Only those who have the link of the post can view it just like any normal post on the site. 
+Unlisted means your post/page will not come up in search results or on anywhere else on your site. Only those who have the link of the post can view it just like any normal post on the site.
 
 The Post could still be seen by anyone, but only if they guess the link!
 
@@ -21,9 +21,9 @@ The plugin updates MySQL query directly in WP_Query class of WordPress to leave 
 = Supported & Actively Developed =
 Need help with something? Have an issue to report? [Get in touch](https://github.com/Nikschavan/unlist-posts "Unlist Posts & Pages on GitHub"). with us on GitHub.
 
-= Limitations Of the Plugin = 
+= Limitations Of the Plugin =
 
-- WP_Query has an a flag to 'Suppress' the filters. If any plugin is using this flag when querying the posts then the unlisted post will not be hidden in that plugin's output. 
+- WP_Query has an a flag to 'Suppress' the filters. If any plugin is using this flag when querying the posts then the unlisted post will not be hidden in that plugin's output.
 - Similarly if any plugin is using a custom MySQL query, then the unlisted posts will not be hidden from it's output.
 
 == Installation ==
