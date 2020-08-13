@@ -3,7 +3,6 @@ name: Bug report
 about: Create a report to help us improve
 title: Bug Title ...
 labels: "bug"
-assignees: 'SuryawanshiPrajakta'
 ---
 
 ### Describe the bug:
@@ -34,6 +33,3 @@ assignees: 'SuryawanshiPrajakta'
 
 ### WordPress version:
 <!-- What version of WordPress are you using? -->
-
-### Elementor version:
-<!-- if applicable -->
