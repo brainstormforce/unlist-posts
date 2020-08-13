@@ -16,6 +16,7 @@ Gruntfile.js
 package.json
 phpunit.xml
 phpunit.xml.dist
+phpcs.ruleset.xml
 multisite.xml
 multisite.xml.dist
 phpcs.xml
