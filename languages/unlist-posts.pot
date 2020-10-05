@@ -38,6 +38,10 @@ msgid ""
 "direct URL."
 msgstr ""
 
+#: class-unlist-posts-admin.php:167
+msgid "Unlisted"
+msgstr ""
+
 #. Plugin Name of the plugin/theme
 msgid "Unlist Posts & Pages"
 msgstr ""

@@ -164,7 +164,7 @@ class Unlist_Posts_Admin {
 
 		// Check if this post is unlisted and mark it as so if appropriate.
 		if ( in_array( $post->ID, $unlisted_posts ) ) {
-			$states[] = 'Unlisted';
+			$states[] = __( 'Unlisted', 'unlist-posts' );
 		}
 
 		return $states;
@@ -188,7 +188,7 @@ class Unlist_Posts_Admin {
 			$link_attributes = 'class="current" aria-current="page"';
 		}
 
-		$views['unlisted'] = '<a href="edit.php?post_status=unlisted&post_type=post" ' . $link_attributes . '>Unlisted <span class="count">(' . $unlisted_count . ')</span></a>';
+		$views['unlisted'] = '<a href="edit.php?post_status=unlisted&post_type=post" ' . $link_attributes . '>' . __( 'Unlisted', 'unlist-posts' ) . ' <span class="count">(' . $unlisted_count . ')</span></a>';
 
 		return $views;
 	}
