@@ -188,7 +188,7 @@ class Unlist_Posts_Admin {
 			$link_attributes = 'class="current" aria-current="page"';
 		}
 
-		$views['unlisted'] = '<a href="edit.php?post_status=unlisted&post_type=post" ' . $link_attributes . '>' . __( 'Unlisted', 'unlist-posts' ) . ' <span class="count">(' . $unlisted_count . ')</span></a>';
+		$views['unlisted'] = '<a href="edit.php?post_status=unlisted&post_type=post" ' . $link_attributes . '>' . __( 'Unlisted', 'unlist-posts' ) . ' <span class="count">(' . esc_html( $unlisted_count ) . ')</span></a>';
 
 		return $views;
 	}
