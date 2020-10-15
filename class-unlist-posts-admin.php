@@ -41,8 +41,8 @@ class Unlist_Posts_Admin {
 		add_action( 'add_meta_boxes', array( $this, 'register_metabox' ) );
 		add_action( 'save_post', array( $this, 'save_meta' ) );
 		add_filter( 'display_post_states', array( $this, 'add_unlisted_post_status' ), 10, 2 );
-		add_filter( 'views_edit-post', array( $this, 'add_unlisted_post_filter' ) );
 		add_filter( 'parse_query', array( $this, 'filter_unlisted_posts' ) );
+		add_action( 'init', array( $this, 'add_post_filter' ) );
 	}
 
 	/**
@@ -155,12 +155,12 @@ class Unlist_Posts_Admin {
 	 */
 	function add_unlisted_post_status( $states, $post ) {
 		// Bail if the unlisted post filter is active, to avoid redundancy.
-		if ( is_admin() && 'unlisted' == $_GET['post_status'] ) {
+		if ( is_admin() && isset( $_GET['post_status'] ) && 'unlisted' == $_GET['post_status'] ) {
 			return;
 		}
 
 		// Get the list of unlisted post IDs from the options table.
-		$unlisted_posts = maybe_unserialize( get_option( 'unlist_posts' ) );
+		$unlisted_posts = maybe_unserialize( get_option( 'unlist_posts', array() ) );
 
 		// Check if this post is unlisted and mark it as so if appropriate.
 		if ( in_array( $post->ID, $unlisted_posts ) ) {
@@ -179,18 +179,35 @@ class Unlist_Posts_Admin {
 	 */
 	function add_unlisted_post_filter( $views ) {
 		// Get the list of unlisted post IDs from the options table.
-		$unlisted_posts = maybe_unserialize( get_option( 'unlist_posts' ) );
+		$unlisted_posts = maybe_unserialize( get_option( 'unlist_posts', array() ) );
 		$unlisted_count = count( $unlisted_posts );
 
 		// Mark 'Unlisted' filter as the current filter if it is.
 		$link_attributes = '';
-		if ( is_admin() && 'unlisted' == $_GET['post_status'] ) {
+		if ( is_admin() && isset( $_GET['post_status'] ) && 'unlisted' == $_GET['post_status'] ) {
 			$link_attributes = 'class="current" aria-current="page"';
 		}
 
 		$views['unlisted'] = '<a href="edit.php?post_status=unlisted&post_type=post" ' . $link_attributes . '>' . __( 'Unlisted', 'unlist-posts' ) . ' <span class="count">(' . esc_html( $unlisted_count ) . ')</span></a>';
 
 		return $views;
+	}
+
+	/**
+	 * Add posts filter for all the public posts.
+	 *
+	 * @return void
+	 */
+	function add_post_filter() {
+		$args = array(
+			'public' => true,
+		);
+
+		$post_types = get_post_types( $args, 'names', 'and' );
+
+		foreach( $post_types as $post_type ) {
+			add_filter( 'views_edit-' . $post_type, array( $this, 'add_unlisted_post_filter' ) );
+		}
 	}
 
 	/**
@@ -205,7 +222,7 @@ class Unlist_Posts_Admin {
 
 		if ( is_admin() && 'edit.php' == $pagenow && isset( $_GET['post_status'] ) && 'unlisted' == $_GET['post_status'] ) {
 			// Get the list of unlisted post IDs from the options table.
-			$unlisted_posts = maybe_unserialize( get_option( 'unlist_posts' ) );
+			$unlisted_posts = maybe_unserialize( get_option( 'unlist_posts', array() ) );
 
 			// Only show posts that are in the list of unlisted post IDs.
 			$query->query_vars['post__in'] = $unlisted_posts;
