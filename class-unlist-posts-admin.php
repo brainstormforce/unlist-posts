@@ -205,7 +205,11 @@ class Unlist_Posts_Admin {
 			)
 		);
 
-		$views['unlisted'] = '<a href=" '. esc_url( $link ) .' " ' . $link_attributes . '>' . __( 'Unlisted', 'unlist-posts' ) . ' <span class="count">(' . esc_html( $query->found_posts ) . ')</span></a>';
+		$count = isset( $query->found_posts ) ? $query->found_posts : false;
+
+		if ( false !== $count ) {
+			$views['unlisted'] = '<a href=" '. esc_url( $link ) .' " ' . $link_attributes . '>' . __( 'Unlisted', 'unlist-posts' ) . ' <span class="count">(' . esc_html( $count ) . ')</span></a>';
+		}
 
 		return $views;
 	}
