@@ -185,6 +185,7 @@ class Unlist_Posts_Admin {
 	function add_unlisted_post_filter( $views ) {
 		// Get the list of unlisted post IDs from the options table.
 		$unlisted_posts = maybe_unserialize( get_option( 'unlist_posts', array() ) );
+		$count = false;
 
 		// Mark 'Unlisted' filter as the current filter if it is.
 		$link_attributes = '';
@@ -192,12 +193,17 @@ class Unlist_Posts_Admin {
 			$link_attributes = 'class="current" aria-current="page"';
 		}
 
-		$query = new WP_Query(
-			array(
-				'post_type' => get_post_type(),
-				'post__in'  => $unlisted_posts
-			)
-		);
+		if ( ! empty( $unlisted_posts ) ) {
+			$post_type = get_current_screen()->post_type ? get_current_screen()->post_type : get_post_types();
+			$query = new WP_Query(
+				array(
+					'post_type' => $post_type,
+					'post__in'  => $unlisted_posts
+				)
+			);
+
+			$count = isset( $query->found_posts ) ? $query->found_posts : false;
+		}
 
 		$link = add_query_arg(
 			array(
@@ -205,9 +211,7 @@ class Unlist_Posts_Admin {
 			)
 		);
 
-		$count = isset( $query->found_posts ) ? $query->found_posts : false;
-
-		if ( false !== $count ) {
+		if ( false !== $count && 0 !== $count ) {
 			$views['unlisted'] = '<a href=" '. esc_url( $link ) .' " ' . $link_attributes . '>' . __( 'Unlisted', 'unlist-posts' ) . ' <span class="count">(' . esc_html( $count ) . ')</span></a>';
 		}
 
