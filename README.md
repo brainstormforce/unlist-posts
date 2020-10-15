@@ -4,7 +4,7 @@
 **Tags:** post, unlist posts, hide posts,  
 **Requires at least:** 4.4  
 **Tested up to:** 5.5  
-**Stable tag:** 1.0.4  
+**Stable tag:** 1.1.0  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -36,6 +36,10 @@ Need help with something? Have an issue to report? [Get in touch](https://github
 Just select option "Unlist Post" in any post of any type and that post will be hidden from the whole site, it can be only accessed if you have the direct link to the post.
 
 ## Changelog ##
+
+### 1.1.0 ###
+- New: Add post status filter to make it easier to find out the unlisted posts. (Props <a href="https://github.com/matthewmcvickar">@matthewmcvickar</a> <a href="https://github.com/Nikschavan/unlist-posts/pull/40">#40</a>)
+- Fix: Don't save post status for the revision posts.
 
 ### 1.0.4 ###
 - Fix: unlist posts does not work in Ajax callbacks. (props <a href="https://github.com/makovetskiy">@makovetskiy</a>)
