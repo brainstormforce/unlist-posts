@@ -38,7 +38,7 @@ Just select option "Unlist Post" in any post of any type and that post will be h
 == Changelog ==
 
 = 1.1.0 =
-- New: Add post status filter to make it easier to find out the unlisted posts. (Props <a href="https://github.com/matthewmcvickar">@matthewmcvickar</a> <a href="https://github.com/Nikschavan/unlist-posts/pull/40">#40</a>)
+- New: Add post status filter to make it easier to find out the unlisted posts. (Props [@matthewmcvickar](https://github.com/matthewmcvickar) [#40](https://github.com/Nikschavan/unlist-posts/pull/40))
 - Fix: Don't save post status for the revision posts.
 
 = 1.0.4 =
