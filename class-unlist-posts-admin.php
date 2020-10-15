@@ -122,6 +122,11 @@ class Unlist_Posts_Admin {
 			return;
 		}
 
+		// Don't record unlist option for revisions.
+		if ( false !== wp_is_post_revision( $post_id ) ) {
+			return;
+		}
+
 		$hidden_posts = get_option( 'unlist_posts', array() );
 
 		if ( '' == $hidden_posts ) {
