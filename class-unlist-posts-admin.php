@@ -122,6 +122,11 @@ class Unlist_Posts_Admin {
 			return;
 		}
 
+		// Don't record unlist option for revisions.
+		if ( false !== wp_is_post_revision( $post_id ) ) {
+			return;
+		}
+
 		$hidden_posts = get_option( 'unlist_posts', array() );
 
 		if ( '' == $hidden_posts ) {
@@ -180,12 +185,24 @@ class Unlist_Posts_Admin {
 	function add_unlisted_post_filter( $views ) {
 		// Get the list of unlisted post IDs from the options table.
 		$unlisted_posts = maybe_unserialize( get_option( 'unlist_posts', array() ) );
-		$unlisted_count = count( $unlisted_posts );
+		$count = false;
 
 		// Mark 'Unlisted' filter as the current filter if it is.
 		$link_attributes = '';
 		if ( is_admin() && isset( $_GET['post_status'] ) && 'unlisted' == $_GET['post_status'] ) {
 			$link_attributes = 'class="current" aria-current="page"';
+		}
+
+		if ( ! empty( $unlisted_posts ) ) {
+			$post_type = get_current_screen()->post_type ? get_current_screen()->post_type : get_post_types();
+			$query = new WP_Query(
+				array(
+					'post_type' => $post_type,
+					'post__in'  => $unlisted_posts
+				)
+			);
+
+			$count = isset( $query->found_posts ) ? $query->found_posts : false;
 		}
 
 		$link = add_query_arg(
@@ -194,7 +211,9 @@ class Unlist_Posts_Admin {
 			)
 		);
 
-		$views['unlisted'] = '<a href=" '. esc_url( $link ) .' " ' . $link_attributes . '>' . __( 'Unlisted', 'unlist-posts' ) . ' <span class="count">(' . esc_html( $unlisted_count ) . ')</span></a>';
+		if ( false !== $count && 0 !== $count ) {
+			$views['unlisted'] = '<a href=" '. esc_url( $link ) .' " ' . $link_attributes . '>' . __( 'Unlisted', 'unlist-posts' ) . ' <span class="count">(' . esc_html( $count ) . ')</span></a>';
+		}
 
 		return $views;
 	}
