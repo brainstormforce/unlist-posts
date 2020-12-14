@@ -77,13 +77,13 @@ class Unlist_Posts_Admin {
 
 		$hidden_posts = get_option( 'unlist_posts', array() );
 
-		if ( '' == $hidden_posts ) {
+		if ( '' === $hidden_posts ) {
 			$hidden_posts = array();
 		}
 
 		$checked = '';
 
-		if ( in_array( $post->ID, $hidden_posts ) ) {
+		if ( in_array( $post->ID, $hidden_posts, true ) ) {
 			$checked = 'checked';
 		}
 
@@ -129,7 +129,7 @@ class Unlist_Posts_Admin {
 
 		$hidden_posts = get_option( 'unlist_posts', array() );
 
-		if ( '' == $hidden_posts ) {
+		if ( '' === $hidden_posts ) {
 			$hidden_posts = array();
 		}
 
@@ -138,12 +138,12 @@ class Unlist_Posts_Admin {
 
 			// Get only the unique post id's in the option array.
 			$hidden_posts = array_unique( $hidden_posts );
-		} elseif ( in_array( $post_id, $hidden_posts ) ) {
+		} elseif ( in_array( $post_id, $hidden_posts, true ) ) {
 
 			// Get only the unique post id's in the option array.
 			$hidden_posts = array_unique( $hidden_posts );
 
-			$key = array_search( $post_id, $hidden_posts );
+			$key = array_search( $post_id, $hidden_posts, true );
 			unset( $hidden_posts[ $key ] );
 		}
 
@@ -160,7 +160,7 @@ class Unlist_Posts_Admin {
 	 */
 	function add_unlisted_post_status( $states, $post ) {
 		// Bail if the unlisted post filter is active, to avoid redundancy.
-		if ( is_admin() && isset( $_GET['post_status'] ) && 'unlisted' == $_GET['post_status'] ) {
+		if ( is_admin() && isset( $_GET['post_status'] ) && 'unlisted' === $_GET['post_status'] ) {
 			return;
 		}
 
@@ -168,7 +168,7 @@ class Unlist_Posts_Admin {
 		$unlisted_posts = maybe_unserialize( get_option( 'unlist_posts', array() ) );
 
 		// Check if this post is unlisted and mark it as so if appropriate.
-		if ( in_array( $post->ID, $unlisted_posts ) ) {
+		if ( in_array( $post->ID, $unlisted_posts, true ) ) {
 			$states[] = __( 'Unlisted', 'unlist-posts' );
 		}
 
@@ -185,20 +185,20 @@ class Unlist_Posts_Admin {
 	function add_unlisted_post_filter( $views ) {
 		// Get the list of unlisted post IDs from the options table.
 		$unlisted_posts = maybe_unserialize( get_option( 'unlist_posts', array() ) );
-		$count = false;
+		$count          = false;
 
 		// Mark 'Unlisted' filter as the current filter if it is.
 		$link_attributes = '';
-		if ( is_admin() && isset( $_GET['post_status'] ) && 'unlisted' == $_GET['post_status'] ) {
+		if ( is_admin() && isset( $_GET['post_status'] ) && 'unlisted' === $_GET['post_status'] ) {
 			$link_attributes = 'class="current" aria-current="page"';
 		}
 
 		if ( ! empty( $unlisted_posts ) ) {
 			$post_type = get_current_screen()->post_type ? get_current_screen()->post_type : get_post_types();
-			$query = new WP_Query(
+			$query     = new WP_Query(
 				array(
 					'post_type' => $post_type,
-					'post__in'  => $unlisted_posts
+					'post__in'  => $unlisted_posts,
 				)
 			);
 
@@ -207,12 +207,12 @@ class Unlist_Posts_Admin {
 
 		$link = add_query_arg(
 			array(
-				'post_status' => 'unlisted'
+				'post_status' => 'unlisted',
 			)
 		);
 
 		if ( false !== $count && 0 !== $count ) {
-			$views['unlisted'] = '<a href=" '. esc_url( $link ) .' " ' . $link_attributes . '>' . __( 'Unlisted', 'unlist-posts' ) . ' <span class="count">(' . esc_html( $count ) . ')</span></a>';
+			$views['unlisted'] = '<a href=" ' . esc_url( $link ) . ' " ' . $link_attributes . '>' . __( 'Unlisted', 'unlist-posts' ) . ' <span class="count">(' . esc_html( $count ) . ')</span></a>';
 		}
 
 		return $views;
@@ -230,7 +230,7 @@ class Unlist_Posts_Admin {
 
 		$post_types = get_post_types( $args, 'names', 'and' );
 
-		foreach( $post_types as $post_type ) {
+		foreach ( $post_types as $post_type ) {
 			add_filter( 'views_edit-' . $post_type, array( $this, 'add_unlisted_post_filter' ) );
 		}
 	}
@@ -245,7 +245,7 @@ class Unlist_Posts_Admin {
 	function filter_unlisted_posts( $query ) {
 		global $pagenow;
 
-		if ( is_admin() && 'edit.php' == $pagenow && isset( $_GET['post_status'] ) && 'unlisted' == $_GET['post_status'] ) {
+		if ( is_admin() && 'edit.php' === $pagenow && isset( $_GET['post_status'] ) && 'unlisted' === $_GET['post_status'] ) {
 			// Get the list of unlisted post IDs from the options table.
 			$unlisted_posts = maybe_unserialize( get_option( 'unlist_posts', array() ) );
 
