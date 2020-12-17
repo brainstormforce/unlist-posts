@@ -126,7 +126,7 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 			$hidden_posts = get_option( 'unlist_posts', array() );
 
 			// bail if none of the posts are hidden or we are on admin page or singular page.
-			if ( ( is_admin() && ! wp_doing_ajax() ) || in_array( get_the_ID(), $hidden_posts ) || empty( $hidden_posts ) ) {
+			if ( ( is_admin() && ! wp_doing_ajax() ) || in_array( get_the_ID(), $hidden_posts, true ) || empty( $hidden_posts ) ) {
 				return $where;
 			}
 
@@ -149,7 +149,7 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 
 			$hidden_posts = get_option( 'unlist_posts', array() );
 
-			if ( in_array( get_the_ID(), $hidden_posts ) && false !== get_the_ID() ) {
+			if ( in_array( get_the_ID(), $hidden_posts, true ) && false !== get_the_ID() ) {
 				wp_no_robots();
 			}
 		}
@@ -174,7 +174,7 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 			$hidden_posts = get_option( 'unlist_posts', array() );
 
 			// bail if none of the posts are hidden or we are on admin page or singular page.
-			if ( ( is_admin() && ! wp_doing_ajax() ) || in_array( get_the_ID(), $hidden_posts ) || empty( $hidden_posts ) ) {
+			if ( ( is_admin() && ! wp_doing_ajax() ) || in_array( get_the_ID(), $hidden_posts, true ) || empty( $hidden_posts ) ) {
 				return $clauses;
 			}
 
