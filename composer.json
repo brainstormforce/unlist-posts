@@ -1,9 +1,10 @@
 {
-    "require-dev": {
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-        "wp-coding-standards/wpcs": "dev-master",
-        "phpcompatibility/phpcompatibility-wp": "*"
-    },
-    "require": {
-    }
+  "name": "brainstormforce/unlist-posts",
+  "description": "Unlist Posts from displaying anywhere on the site, only access the post with a direct link.",
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+    "phpcompatibility/phpcompatibility-wp": "*",
+    "wp-coding-standards/wpcs": "^2"
+  },
+  "require": {}
 }

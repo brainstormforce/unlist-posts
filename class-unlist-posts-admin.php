@@ -83,7 +83,7 @@ class Unlist_Posts_Admin {
 
 		$checked = '';
 
-		if ( in_array( $post->ID, $hidden_posts, true ) ) {
+		if ( in_array( (int) $post->ID, $hidden_posts, true ) ) {
 			$checked = 'checked';
 		}
 
