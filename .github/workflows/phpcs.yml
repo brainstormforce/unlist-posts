@@ -7,6 +7,9 @@ jobs:
       name: PHPCS
       runs-on: ubuntu-latest
       steps:
+        - name: Install dependencies
+          run: composer install --dev --prefer-dist --no-progress --no-suggest
+
         - uses: actions/checkout@v2
         - name: PHPCS check
           uses: chekalsky/phpcs-action@v1
