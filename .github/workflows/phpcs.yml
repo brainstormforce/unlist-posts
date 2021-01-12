@@ -7,8 +7,10 @@ jobs:
       name: PHPCS
       runs-on: ubuntu-latest
       steps:
-        - name: Install dependencies
+        - name: Checkout the code
         - uses: actions/checkout@v2
+
+        - name: Install dependencies
         - run: ls -l && composer install --dev --prefer-dist --no-progress --no-suggest
 
         - name: PHPCS check
