@@ -92,10 +92,10 @@ class Unlist_Posts_Admin {
 		?>
 		<p>
 			<label class="checkbox-inline">
-				<input name="unlist_posts" type="checkbox" <?php echo esc_attr( $checked ); ?> value=""><?php _e( 'Unlist this post?', 'unlist-posts' ); ?>
+				<input name="unlist_posts" type="checkbox" <?php echo esc_attr( $checked ); ?> value=""><?php esc_html_e( 'Unlist this post?', 'unlist-posts' ); ?>
 			</label>
 		</p>
-		<p class="description"><?php _e( 'This will hide the post from your site, The post can only be accessed from direct URL.', 'unlist-posts' ); ?> </p>
+		<p class="description"><?php esc_html_e( 'This will hide the post from your site, The post can only be accessed from direct URL.', 'unlist-posts' ); ?> </p>
 		<?php
 	}
 
