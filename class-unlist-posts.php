@@ -161,12 +161,15 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 		}
 
 		/**
-		 * Add meta tags to block search engines on a page if the page is unlisted.
+		 * This directive tells web robots not to index the page content if the page is unlisted.
 		 *
 		 * @since  1.1.4
+		 * 
+		 * @param  Array $robots Associative array of robots directives.
+		 * 
 		 */
 		public function hide_post_page_no_robots( $robots ) {
-			
+
 			// Bail if posts unlists is disabled.
 			if ( false === $this->allow_post_unlist() ) {
 				return false;
