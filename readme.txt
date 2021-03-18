@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Tags: post, unlist posts, hide posts,
 Requires at least: 4.4
 Tested up to: 5.7
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +36,9 @@ Need help with something? Have an issue to report? [Get in touch](https://github
 Just select option "Unlist Post" in any post of any type and that post will be hidden from the whole site, it can be only accessed if you have the direct link to the post.
 
 == Changelog ==
+
+= 1.1.4 =
+- Fix: Due to a bug unlisted posts were visible in the search results, which we have fixed now.
 
 = 1.1.3 =
 - Deprecated: wp_no_robots() has been deprecated.
