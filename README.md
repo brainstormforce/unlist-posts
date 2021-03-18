@@ -38,7 +38,7 @@ Just select option "Unlist Post" in any post of any type and that post will be h
 ## Changelog ##
 
 ### 1.1.4 ###
-- Fix: due to a bug unlisted posts were visible in the search results, which we have fixed now.
+- Fix: Due to a bug unlisted posts were visible in the search results, which we have fixed now.
 
 ### 1.1.3 ###
 - Deprecated: wp_no_robots() has been deprecated.
