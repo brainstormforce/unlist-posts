@@ -167,7 +167,6 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 		 * @param  Array $robots Associative array of robots directives.
 		 */
 		public function no_robots_for_unlisted_posts( $robots ) {
-
 			// Bail if posts unlists is disabled.
 			if ( false === $this->allow_post_unlist() ) {
 				return $robots;
