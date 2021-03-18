@@ -164,9 +164,7 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 		 * This directive tells web robots not to index the page content if the page is unlisted.
 		 *
 		 * @since  1.1.4
-		 * 
 		 * @param  Array $robots Associative array of robots directives.
-		 * 
 		 */
 		public function hide_post_page_no_robots( $robots ) {
 
