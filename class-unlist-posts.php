@@ -150,7 +150,7 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 			$hidden_posts = get_option( 'unlist_posts', array() );
 
 			if ( in_array( get_the_ID(), $hidden_posts, true ) && false !== get_the_ID() ) {
-				add_filter( 'wp_robots', 'wp_robots_no_robots' );
+				wp_robots_no_robots( $hidden_posts );
 			}
 		}
 
