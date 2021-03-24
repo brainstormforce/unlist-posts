@@ -37,7 +37,7 @@ Just select option "Unlist Post" in any post of any type and that post will be h
 
 == Changelog ==
 = 1.1.5 =
-- Fix: Robots tags conflicting with Yoast SEO.
+- Fix: Compatibility with Yoast SEO's robots tags options. Robots tags from Unlist Posts will override tag changes from Yoast SEO.
 
 = 1.1.4 =
 - Fix: Due to a bug unlisted posts were visible in the search results, which we have fixed now.
