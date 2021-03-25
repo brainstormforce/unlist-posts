@@ -175,6 +175,8 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 			$hidden_posts = get_option( 'unlist_posts', array() );
 
 			if ( in_array( get_the_ID(), $hidden_posts, true ) && false !== get_the_ID() ) {
+				// Disable robots tags from Yoast SEO.
+				add_filter( 'wpseo_robots_array', '__return_empty_array' );
 				return wp_robots_no_robots( $robots );
 			}
 			return $robots;
