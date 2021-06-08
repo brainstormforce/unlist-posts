@@ -2,9 +2,9 @@
   "name": "brainstormforce/unlist-posts",
   "description": "Unlist Posts from displaying anywhere on the site, only access the post with a direct link.",
   "require-dev": {
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-    "phpcompatibility/phpcompatibility-wp": "*",
-    "wp-coding-standards/wpcs": "^2"
+    "wp-coding-standards/wpcs": "^2.2",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+    "phpcompatibility/php-compatibility": "^9.3"
   },
   "require": {}
 }
