@@ -128,9 +128,9 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 
 			// bail if none of the posts are hidden or we are on admin page or singular page.
 			if ( ( is_admin() && ! wp_doing_ajax() ) || in_array( get_the_ID(), $hidden_posts, true ) || empty( $hidden_posts ) ) {
-				if ( ( is_admin() && ! wp_doing_ajax() ) || empty( $hidden_posts ) ) { // condition run when user already on unlisted post.
+				// if ( ( is_admin() && ! wp_doing_ajax() ) || empty( $hidden_posts ) ) { // condition run when user already on unlisted post.
 					return $where;
-				}
+				// }
 			}
 
 			$where .= ' AND p.ID NOT IN ( ' . esc_sql( $this->hidden_post_string() ) . ' ) ';
@@ -205,9 +205,9 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 
 			// bail if none of the posts are hidden or we are on admin page or singular page.
 			if ( ( is_admin() && ! wp_doing_ajax() ) || in_array( get_the_ID(), $hidden_posts, true ) || empty( $hidden_posts ) ) {
-				if ( ( is_admin() && ! wp_doing_ajax() ) || empty( $hidden_posts ) ) { // condition run when user already on unlisted post.
+				// if ( ( is_admin() && ! wp_doing_ajax() ) || empty( $hidden_posts ) ) { // condition run when user already on unlisted post.
 					return $clauses;
-				}
+				// }
 			}
 
 			$where            = $clauses['where'];
