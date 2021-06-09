@@ -24,6 +24,7 @@ require_once $_tests_dir . '/includes/functions.php';
  */
 function _manually_load_plugin() {
 	require dirname( dirname( __FILE__ ) ) . '/unlist-posts.php';
+	require_once UNLIST_POSTS_DIR . 'class-unlist-posts-admin.php';
 }
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
 
