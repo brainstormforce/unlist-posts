@@ -7,5 +7,8 @@
     "phpcompatibility/php-compatibility": "^9.3",
     "phpunit/phpunit": "^5.7 || ^6.5 || ^7.5"
   },
-  "require": {}
+  "require": {},
+  "scripts": {
+    "test": "vendor/bin/phpunit"
+  }
 }
