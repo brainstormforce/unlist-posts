@@ -31,14 +31,15 @@ class TestWPQueryUnlisted extends WP_UnitTestCase {
 	}
 
 	/**
-	 * A single example test.
+	 * Test to make sure unlisted posts are hidden from WP_Query.
 	 */
-	public function test_adjacent_posts() {
+	public function test_unlisted_post_not_in_wp_query() {
 		wp_set_current_user( $this->editor_user_id );
 
 		// Create a post.
 		$unlisted_post = self::factory()->post->create();
 
+		// Unlist the post.
 		$_POST['unlist_posts']       = true;
 		$_POST['unlist_post_nounce'] = wp_create_nonce( 'unlist_post_nounce' );
 		Unlist_Posts_Admin::instance()->save_meta( $unlisted_post );
@@ -49,6 +50,7 @@ class TestWPQueryUnlisted extends WP_UnitTestCase {
 			)
 		);
 
+		// Assert that WP_Query did not return the unlisted post.
 		$this->assertEmpty( $query->posts );
 	}
 }
