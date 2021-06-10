@@ -10,8 +10,15 @@ jobs:
         - name: Checkout
           uses: actions/checkout@v2
 
+        - name: Setup PHP
+          uses: shivammathur/setup-php@v2
+          with:
+            php-version: 7.0
+            coverage: none
+            tools: composer, cs2pr
+
         - name: Install dependencies
-          run: composer install --dev --prefer-dist --no-progress --no-suggest
+          run: composer install --no-progress --no-suggest --prefer-dist --optimize-autoloader
 
         - name: PHPCS check
           uses: chekalsky/phpcs-action@v1
