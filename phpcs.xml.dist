@@ -5,8 +5,17 @@
 	<rule ref="PHPCompatibility"/>
 	<config name="testVersion" value="5.2-"/>
 
-	<rule ref="WordPress-Core" />
+	<rule ref="WordPress-Core" >
+ 		<!-- Double arrow alignment requirement adds unwanted changes if you add/remove any parameter from the array -->
+ 		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned" />
+ 		<exclude name="WordPress.PHP.DevelopmentFunctions.error_log_trigger_error" />
+ 		<exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning" />
+ 	</rule>
 	<rule ref="WordPress-Docs" />
+
+	<rule ref="Generic.Arrays.DisallowShortArraySyntax.Found">
+		<type>warning</type>
+	</rule>
 
 	<!-- Check all PHP files in directory tree by default. -->
 	<arg name="extensions" value="php"/>
