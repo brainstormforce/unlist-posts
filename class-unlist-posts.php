@@ -128,7 +128,7 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 
 			// bail if none of the posts are hidden or we are on admin page or singular page.
 			if ( ( is_admin() && ! wp_doing_ajax() ) || empty( $hidden_posts ) ) {
-					return $where;
+				return $where;
 			}
 
 			$where .= ' AND p.ID NOT IN ( ' . esc_sql( $this->hidden_post_string() ) . ' ) ';
@@ -203,7 +203,7 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 
 			// bail if none of the posts are hidden or we are on admin page or singular page.
 			if ( ( is_admin() && ! wp_doing_ajax() ) || empty( $hidden_posts ) ) {
-					return $clauses;
+				return $clauses;
 			}
 
 			$where            = $clauses['where'];
