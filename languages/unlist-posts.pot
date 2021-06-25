@@ -51,9 +51,9 @@ msgid "https://github.com/Nikschavan/hide-post"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid ""
-"Unlist Posts from dispying anywhere on the site, only access the post with "
-"a direct link."
+msgid "" 
+"Unlist Posts and/or pages from displaying anywhere on the site, "
+"only access the post and/or page with a direct link."
 msgstr ""
 
 #. Author of the plugin/theme
