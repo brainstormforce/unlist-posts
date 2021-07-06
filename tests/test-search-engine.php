@@ -50,12 +50,8 @@ class SearchEngine extends WP_UnitTestCase {
 		$GLOBALS['post'] = get_post( $unlisted_post );
 
 		// Get wp_robots string of a current post.
-		ob_start();
-		wp_robots();
-		$output = ob_get_clean();
-
 		// Unlisted post should contain noindex string in meta.
-		$this->assertContains( 'noindex', $output );
+		$this->assertContains( 'noindex', get_echo( 'wp_robots' ) );
 	}
 
 	/**
@@ -71,11 +67,7 @@ class SearchEngine extends WP_UnitTestCase {
 		$GLOBALS['post'] = get_post( $listed_post );
 
 		// Get wp_robots string of a current post.
-		ob_start();
-		wp_robots();
-		$output = ob_get_clean();
-
 		// Listed post should not contain noindex string in meta.
-		$this->assertNotContains( 'noindex', $output );
+		$this->assertNotContains( 'noindex', get_echo( 'wp_robots' ) );
 	}
 }
