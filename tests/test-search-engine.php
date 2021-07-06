@@ -28,13 +28,14 @@ class SearchEngine extends WP_UnitTestCase {
 				'role' => 'editor',
 			)
 		);
+
+		_delete_all_posts();
 	}
 
 	/**
 	 * Check search engine robots tag for unlisted post.
 	 */
 	public function test_unlisted_noindex() {
-		_delete_all_posts();
 		wp_set_current_user( $this->editor_user_id );
 
 		// Create an unlisted post.
@@ -48,31 +49,19 @@ class SearchEngine extends WP_UnitTestCase {
 		// Set unlisted post as a current post.
 		$GLOBALS['post'] = get_post( $unlisted_post );
 
-		// Set default contain_noindex to false.
-		$contain_noindex = false;
-
 		// Get wp_robots string of a current post.
 		ob_start();
 		wp_robots();
 		$output = ob_get_clean();
 
-		// Set default contain_noindex to false.
-		$contain_noindex = false;
-
-		// Set contain_noindex to true, if it adds noindex string to meta.
-		if ( false !== strpos( $output, 'noindex' ) ) {
-			$contain_noindex = true;
-		}
-
 		// Unlisted post should contain noindex string in meta.
-		$this->assertEquals( $contain_noindex, true );
+		$this->assertContains( 'noindex', $output );
 	}
 
 	/**
 	 * Check search engine robots tag for listed post.
 	 */
 	public function test_listed_noindex() {
-		_delete_all_posts();
 		wp_set_current_user( $this->editor_user_id );
 
 		// Create an listed post.
@@ -81,23 +70,12 @@ class SearchEngine extends WP_UnitTestCase {
 		// Set listed post as a current post.
 		$GLOBALS['post'] = get_post( $listed_post );
 
-		// Set default contain_noindex to false.
-		$contain_noindex = false;
-
 		// Get wp_robots string of a current post.
 		ob_start();
 		wp_robots();
 		$output = ob_get_clean();
 
-		// Set default contain_noindex to false.
-		$contain_noindex = false;
-
-		// Set contain_noindex to true, if it adds noindex string to meta.
-		if ( false !== strpos( $output, 'noindex' ) ) {
-			$contain_noindex = true;
-		}
-
 		// Listed post should not contain noindex string in meta.
-		$this->assertEquals( $contain_noindex, false );
+		$this->assertNotContains( 'noindex', $output );
 	}
 }
