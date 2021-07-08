@@ -11,7 +11,7 @@
 class TestWPListPagesUnlisted extends WP_UnitTestCase {
 
 	/**
-	 * User ID for a editor user..
+	 * User ID for the editor user.
 	 *
 	 * @var int
 	 */
