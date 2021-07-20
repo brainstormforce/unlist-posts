@@ -2,7 +2,7 @@
 Contributors: brainstormforce, Nikschavan
 Donate link: https://www.paypal.me/BrainstormForce
 Tags: post, unlist posts, hide posts,
-Requires at least: 4.4
+Requires at least: 4.6 or more
 Tested up to: 5.8
 Stable tag: 1.1.6
 License: GPLv2 or later
