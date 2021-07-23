@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     Unlist Posts & Pages
  * Plugin URI:      https://github.com/Nikschavan/hide-post
- * Description:     Unlist Posts from dispying anywhere on the site, only access the post with a direct link.
+ * Description:     With this plugin you can hide post, pages and custom items from your site and make them only accessible with the direct link.
  * Author:          Nikhil Chavan
  * Author URI:      https://www.nikhilchavan.com/
  * Text Domain:     unlist-posts
