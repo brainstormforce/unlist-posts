@@ -37,6 +37,9 @@ Just select option "Unlist Post" in any post of any type and that post will be h
 
 == Changelog ==
 
+= 1.1.8 =
+- Improvement: Updated the description of the plugin (props [@NekoJonez](https://github.com/NekoJonez))
+
 = 1.1.7 =
 - Fix: Support translations on translate.wordpress.org.
 
