@@ -8,7 +8,7 @@ Stable tag: 1.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Unlist Posts from displaying anywhere on the site, only access the post with a direct link.
+Hide posts, pages or  custom items from your site and make them accessible only with the direct link.
 
 == Description ==
 
@@ -36,6 +36,9 @@ Need help with something? Have an issue to report? [Get in touch](https://github
 Just select option "Unlist Post" in any post of any type and that post will be hidden from the whole site, it can be only accessed if you have the direct link to the post.
 
 == Changelog ==
+
+= 1.1.8 =
+- Improvement: Updated the description of the plugin (props [@NekoJonez](https://github.com/NekoJonez))
 
 = 1.1.7 =
 - Fix: Support translations on translate.wordpress.org.
