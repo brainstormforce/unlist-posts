@@ -8,7 +8,7 @@ Stable tag: 1.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Unlist Posts from displaying anywhere on the site, only access the post with a direct link.
+Hide posts, pages or  custom items from your site and make them accessible only with the direct link.
 
 == Description ==
 
