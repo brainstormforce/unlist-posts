@@ -5,12 +5,10 @@
  * @package Unlist_Posts
  */
 
-use Yoast\PHPUnitPolyfills\TestCases\TestCase;
-
 /**
  * Make sure WP_Query does not return the unlisted posts.
  */
-class TestWPListPagesUnlisted extends TestCase {
+class TestWPListPagesUnlisted extends WP_UnitTestCase {
 
 	/**
 	 * User ID for the editor user.

@@ -5,12 +5,10 @@
  * @package Unlist_Posts
  */
 
-use Yoast\PHPUnitPolyfills\TestCases\TestCase;
-
 /**
  * Make sure unlisted posts are hidden from search engine.
  */
-class SearchEngine extends TestCase {
+class SearchEngine extends WP_UnitTestCase {
 
 	/**
 	 * User ID for a editor user..
