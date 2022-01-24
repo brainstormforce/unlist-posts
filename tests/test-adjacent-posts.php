@@ -5,10 +5,12 @@
  * @package Unlist_Posts
  */
 
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
+
 /**
  * Make sure unlisted posts are hidden from get_adjacent_post().
  */
-class AdjacentPosts extends WP_UnitTestCase {
+class AdjacentPosts extends TestCase {
 
 	/**
 	 * User ID for a editor user..
