@@ -6,3 +6,5 @@ node_modules/
 *.tar.gz
 package-lock.json
 vendor/
+# phpunit
+.phpunit.result.cache

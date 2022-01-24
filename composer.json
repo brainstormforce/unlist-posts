@@ -5,7 +5,8 @@
     "wp-coding-standards/wpcs": "^2.2",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
     "phpcompatibility/php-compatibility": "^9.3",
-    "phpunit/phpunit": "^5.7 || ^6.5 || ^7.5"
+    "phpunit/phpunit": "^8",
+    "yoast/phpunit-polyfills": "^1"
   },
   "require": {},
   "scripts": {
