@@ -3,7 +3,7 @@
 	<description>Generally-applicable sniffs for WordPress plugins</description>
 
 	<rule ref="PHPCompatibility"/>
-	<config name="testVersion" value="5.2-"/>
+	<config name="testVersion" value="5.4-"/>
 
 	<rule ref="WordPress-Core" >
  		<!-- Double arrow alignment requirement adds unwanted changes if you add/remove any parameter from the array -->
@@ -24,6 +24,8 @@
 	<!-- Show sniff codes in all reports -->
 	<arg value="s"/>
 
+	<exclude-pattern>*/tests/bootstrap.php</exclude-pattern>
+	<exclude-pattern>*/tests/wp-config.php</exclude-pattern>
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/wordpress/*</exclude-pattern>
