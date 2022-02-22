@@ -184,7 +184,7 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 		}
 
 		/**
-		 * Change robots for WooCommerce pages according to the settings.
+		 * Change robots for unlisted post/pages.
 		 *
 		 * @param array $robots Array of robots to sanitize.
 		 *
