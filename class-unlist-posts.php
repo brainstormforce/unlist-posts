@@ -63,7 +63,7 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 			add_filter( 'get_previous_post_where', array( $this, 'post_navigation_clause' ), 20, 1 );
 			add_action( 'wp_head', array( $this, 'hide_post_from_searchengines' ) );
 			add_filter( 'wp_robots', array( $this, 'no_robots_for_unlisted_posts' ) );
-			add_filter( 'rank_math/frontend/robots', array( $this, 'robots' ) );
+			add_filter( 'rank_math/frontend/robots', array( $this, 'change_robots_for_rankmath' ) );
 			add_filter( 'comments_clauses', array( $this, 'comments_clauses' ), 20, 2 );
 			add_filter( 'wp_list_pages_excludes', array( $this, 'wp_list_pages_excludes' ) );
 		}
@@ -88,7 +88,7 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 		 *
 		 * @return array Modified robots.
 		 */
-		public function robots( $robots ) {
+		public function change_robots_for_rankmath( $robots ) {
 			// Bail if posts unlists is disabled.
 			if ( false === $this->allow_post_unlist() ) {
 				return $robots;
