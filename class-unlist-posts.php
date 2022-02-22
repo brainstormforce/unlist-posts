@@ -65,6 +65,7 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 			add_filter( 'wp_robots', array( $this, 'no_robots_for_unlisted_posts' ) );
 			add_filter( 'comments_clauses', array( $this, 'comments_clauses' ), 20, 2 );
 			add_filter( 'wp_list_pages_excludes', array( $this, 'wp_list_pages_excludes' ) );
+			add_filter( 'rank_math/frontend/robots', array( $this, 'robots' ) );
 		}
 
 		/**
@@ -179,6 +180,18 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 				add_filter( 'wpseo_robots_array', '__return_empty_array' );
 				return wp_robots_no_robots( $robots );
 			}
+			return $robots;
+		}
+
+		/**
+		 * Change robots for WooCommerce pages according to the settings.
+		 *
+		 * @param array $robots Array of robots to sanitize.
+		 *
+		 * @return array Modified robots.
+		 */
+		public function robots( $robots ) {
+			$robots['index'] = 'noindex';
 			return $robots;
 		}
 
