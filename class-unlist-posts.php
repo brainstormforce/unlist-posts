@@ -82,7 +82,7 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 		}
 
 		/**
-		 * Change robots for unlisted post/pages.
+		 * Change robots for unlisted post/pages when RankMath is activated.
 		 *
 		 * @param array $robots Array of robots to sanitize.
 		 *
