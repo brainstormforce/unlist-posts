@@ -64,7 +64,6 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 			add_action( 'wp_head', array( $this, 'hide_post_from_searchengines' ) );
 			add_filter( 'wp_robots', array( $this, 'no_robots_for_unlisted_posts' ) );
 			add_filter( 'rank_math/frontend/robots', array( $this, 'change_robots_for_rankmath' ) );
-			add_filter( 'comments_clauses', array( $this, 'comments_clauses' ), 20, 2 );
 			add_filter( 'wp_list_pages_excludes', array( $this, 'wp_list_pages_excludes' ) );
 		}
 
@@ -203,37 +202,6 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 			}
 
 			return $robots;
-		}
-
-		/**
-		 * Filter where clause to hide selected posts.
-		 *
-		 * @since  1.0.1
-		 *
-		 * @param  Array    $clauses Comment Query Clauses.
-		 * @param  WP_Query $query WP_Query &$this The WP_Query instance (passed by reference).
-		 *
-		 * @return String $where Where clause.
-		 */
-		public function comments_clauses( $clauses, $query ) {
-
-			// Bail if posts unlists is disabled.
-			if ( false === $this->allow_post_unlist() ) {
-				return $clauses;
-			}
-
-			$hidden_posts = get_option( 'unlist_posts', array() );
-
-			// bail if none of the posts are hidden or we are on admin page or singular page.
-			if ( ( is_admin() && ! wp_doing_ajax() ) || empty( $hidden_posts ) ) {
-				return $clauses;
-			}
-
-			$where            = $clauses['where'];
-			$where           .= ' AND comment_post_ID NOT IN ( ' . esc_sql( $this->hidden_post_string() ) . ' ) ';
-			$clauses['where'] = $where;
-
-			return $clauses;
 		}
 
 		/**
