@@ -986,7 +986,7 @@
         },
         {
             "name": "roots/wordpress",
-            "version": "6.0.3",
+            "version": "6.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/roots/wordpress.git",
@@ -1017,7 +1017,7 @@
             ],
             "support": {
                 "issues": "https://github.com/roots/wordpress/issues",
-                "source": "https://github.com/roots/wordpress/tree/6.0.3"
+                "source": "https://github.com/roots/wordpress/tree/6.1.1"
             },
             "funding": [
                 {
@@ -1104,22 +1104,22 @@
         },
         {
             "name": "roots/wordpress-no-content",
-            "version": "6.0.3",
+            "version": "6.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress/WordPress.git",
-                "reference": "6.0.3"
+                "reference": "6.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/release/wordpress-6.0.3-no-content.zip",
-                "shasum": "39bb6da76aa5c28c4288593e0cd6a710cde7db6e"
+                "url": "https://downloads.wordpress.org/release/wordpress-6.1.1-no-content.zip",
+                "shasum": "ad2d202747c5356e7b6246fbc339b46aebfa0665"
             },
             "require": {
                 "php": ">= 5.6.20"
             },
             "provide": {
-                "wordpress/core-implementation": "6.0.3"
+                "wordpress/core-implementation": "6.1.1"
             },
             "suggest": {
                 "ext-curl": "Performs remote request operations.",
@@ -1170,7 +1170,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2022-10-17T22:55:15+00:00"
+            "time": "2022-11-15T19:14:34+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
