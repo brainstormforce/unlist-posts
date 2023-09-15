@@ -75,58 +75,12 @@ class Unlist_Posts_Admin {
 	 * @param  POST $post Currennt post object which is being displayed.
 	 */
 	function metabox_render( $post ) {
-
-		$hidden_posts = get_option( 'unlist_posts', array() );
-
-		if ( '' === $hidden_posts ) {
-			$hidden_posts = array();
-		}
-
-		$checked = '';
-
-		if ( in_array( (int) $post->ID, $hidden_posts, true ) ) {
-			$checked = 'checked';
-		}
-
-		// We'll use this nonce field later on when saving.
-		wp_nonce_field( 'unlist_post_nounce', 'unlist_post_nounce' );
-		?>
-		<p>
-			<label class="checkbox-inline">
-				<input name="unlist_posts" type="checkbox" <?php echo esc_attr( $checked ); ?> value=""><?php esc_html_e( 'Unlist this post?', 'unlist-posts' ); ?>
-			</label>
-		</p>
-		<p class="description"><?php esc_html_e( 'This will hide the post from your site, The post can only be accessed from direct URL.', 'unlist-posts' ); ?> </p>
-		
-		
-		<?php
-		// Enable Robots
-		$enable_robots = get_option( 'unlist_posts_enable_robots', array() );
-
-		if ( '' === $enable_robots ) {
-			$enable_robots = array();
-		}
-
-		$checked = '';
-
-		if ( in_array( (int) $post->ID, $enable_robots, true ) ) {
-			$checked = 'checked';
-		}
-
-		// We'll use this nonce field later on when saving.
-		wp_nonce_field( 'unlist_post_enable_robots_nounce', 'unlist_post_enable_robots_nounce' );
-		?>
-		<p>
-			<label class="checkbox-inline">
-				<input name="unlist_posts_enable_robots" type="checkbox" <?php echo esc_attr( $checked ); ?> value=""><?php esc_html_e( 'Allow Robots to Crawl?', 'unlist-posts' ); ?>
-			</label>
-		</p>
-		<p class="description"><?php esc_html_e( 'By default, Unlist Posts does not allow indexing of unlisted posts, check this box to enable indexing.', 'unlist-posts' ); ?> </p>
-		<?php
+		$this->render_unlist_posts( $post );
+		$this->render_enable_robots( $post );
 	}
 
 	/**
-	 * Save meta field.
+	 * Save meta field for unlist posts.
 	 *
 	 * @param  POST $post_id Currennt post object which is being displayed.
 	 *
@@ -177,7 +131,7 @@ class Unlist_Posts_Admin {
 	}
 
 	/**
-	 * Save meta field.
+	 * Save meta field for enable robots.
 	 *
 	 * @param  POST $post_id Currennt post object which is being displayed.
 	 *
@@ -331,6 +285,68 @@ class Unlist_Posts_Admin {
 		}
 
 		return $query;
+	}
+	
+	/**
+	 * Render Unlist Posts meta field
+	 *
+	 * @param Post  $post     The current post object.
+	 * @return void
+	 */
+	function render_unlist_posts( $post ) {
+		$hidden_posts = get_option( 'unlist_posts', array() );
+
+		if ( '' === $hidden_posts ) {
+			$hidden_posts = array();
+		}
+
+		$checked = '';
+
+		if ( in_array( (int) $post->ID, $hidden_posts, true ) ) {
+			$checked = 'checked';
+		}
+
+		// We'll use this nonce field later on when saving.
+		wp_nonce_field( 'unlist_post_nounce', 'unlist_post_nounce' );
+		?>
+		<p>
+			<label class="checkbox-inline">
+				<input name="unlist_posts" type="checkbox" <?php echo esc_attr( $checked ); ?> value=""><?php esc_html_e( 'Unlist this post?', 'unlist-posts' ); ?>
+			</label>
+		</p>
+		<p class="description"><?php esc_html_e( 'This will hide the post from your site, The post can only be accessed from direct URL.', 'unlist-posts' ); ?> </p>
+		<?php
+	}
+	
+	/**
+	 * Render enable robots meta field
+	 *
+	 * @param Post  $post     The current post object.
+	 * @return void
+	 */
+	function render_enable_robots( $post ) {
+		$enable_robots = get_option( 'unlist_posts_enable_robots', array() );
+
+		if ( '' === $enable_robots ) {
+			$enable_robots = array();
+		}
+
+		$checked = '';
+
+		if ( in_array( (int) $post->ID, $enable_robots, true ) ) {
+			$checked = 'checked';
+		}
+
+		// We'll use this nonce field later on when saving.
+		wp_nonce_field( 'unlist_post_enable_robots_nounce', 'unlist_post_enable_robots_nounce' );
+		?>
+		<p>
+			<label class="checkbox-inline">
+				<input name="unlist_posts_enable_robots" type="checkbox" <?php echo esc_attr( $checked ); ?> value=""><?php esc_html_e( 'Allow Robots to Crawl?', 'unlist-posts' ); ?>
+			</label>
+		</p>
+		<p class="description"><?php esc_html_e( 'By default, Unlist Posts does not allow indexing of unlisted posts, check this box to enable indexing.', 'unlist-posts' ); ?> </p>
+		<?php
 	}
 
 }
