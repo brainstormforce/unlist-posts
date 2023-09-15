@@ -94,9 +94,12 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 			}
 
 			$hidden_posts = get_option( 'unlist_posts', array() );
+			$enable_robots = get_option( 'unlist_posts_enable_robots', array() );
 
 			if ( in_array( get_the_ID(), $hidden_posts, true ) && false !== get_the_ID() ) {
-				$robots['index'] = 'noindex';
+				if ( !in_array( get_the_ID(), $enable_robots, true ) && false !== get_the_ID()) {
+					$robots['index'] = 'noindex';
+				}
 			}
 			return $robots;
 		}
@@ -175,9 +178,12 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 			}
 
 			$hidden_posts = get_option( 'unlist_posts', array() );
+			$enable_robots = get_option( 'unlist_posts_enable_robots', array() );
 
 			if ( in_array( get_the_ID(), $hidden_posts, true ) && false !== get_the_ID() ) {
-				wp_no_robots();
+				if ( !in_array( get_the_ID(), $enable_robots, true ) && false !== get_the_ID()) {
+					wp_no_robots();
+				}
 			}
 		}
 
@@ -194,11 +200,14 @@ if ( ! class_exists( 'Unlist_Posts' ) ) {
 			}
 
 			$hidden_posts = get_option( 'unlist_posts', array() );
+			$enable_robots = get_option( 'unlist_posts_enable_robots', array() );
 
 			if ( in_array( get_the_ID(), $hidden_posts, true ) && false !== get_the_ID() ) {
-				// Disable robots tags from Yoast SEO.
-				add_filter( 'wpseo_robots_array', '__return_empty_array' );
-				return wp_robots_no_robots( $robots );
+				if ( !in_array( get_the_ID(), $enable_robots, true ) && false !== get_the_ID()) {
+					// Disable robots tags from Yoast SEO.
+					add_filter( 'wpseo_robots_array', '__return_empty_array' );
+					return wp_robots_no_robots( $robots );
+				}
 			}
 
 			return $robots;
