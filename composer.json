@@ -14,7 +14,7 @@
     "roots/wordpress-core-installer": "^4.0",
     "roots/wordpress-full": "*@beta",
     "wp-coding-standards/wpcs": "^3.3",
-    "wp-phpunit/wp-phpunit": "^6.0",
+    "wp-phpunit/wp-phpunit": "^7.0",
     "yoast/phpunit-polyfills": "^4.0"
   },
   "config": {
