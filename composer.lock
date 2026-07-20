@@ -1145,23 +1145,23 @@
         },
         {
             "name": "roots/wordpress-full",
-            "version": "7.0",
+            "version": "7.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress/WordPress.git",
-                "reference": "7.0"
+                "reference": "7.0.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.w.org/release/wordpress-7.0.zip",
-                "reference": "7.0",
-                "shasum": "6708d4e20f22e997196689751a4309497cfc58df"
+                "url": "https://downloads.w.org/release/wordpress-7.0.2.zip",
+                "reference": "7.0.2",
+                "shasum": "0dc8f6bd325a0565c3fa4975de8ed1683a4f5cb3"
             },
             "require": {
                 "php": ">= 7.4"
             },
             "provide": {
-                "wordpress/core-implementation": "7.0"
+                "wordpress/core-implementation": "7.0.2"
             },
             "suggest": {
                 "ext-curl": "Performs remote request operations.",
@@ -1212,7 +1212,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2026-05-20T18:34:27+00:00"
+            "time": "2026-07-17T18:39:04+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -2534,9 +2534,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "roots/wordpress-full": 10
-    },
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {},
